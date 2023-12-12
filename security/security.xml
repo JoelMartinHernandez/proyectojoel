@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+    <!-- Administrador proyectojoel -->
+    <record id="administrador" model="res.groups">
+      <field name="name">Proyectojoel/Administrador</field>
+      <field name="comment">Perfil administrador a los proyectos</field>
+    </record>
+    <!-- Jefe_de_proyectos proyectojoel -->
+    <record id="jefe_de_proyectos" model="res.groups">
+      <field name="name">Proyectojoel/Jefe de proyectos</field>
+      <field name="comment">Perfil Jefe de proyectos de los proyectos</field>
+    </record>
+    <!-- Analista proyectojoel -->
+    <record id="analista" model="res.groups">
+      <field name="name">Proyectojoel/Analista</field>
+      <field name="comment">Perfil Analista de los proyectos</field>
+    </record>
+    <!-- Programador proyectojoel -->
+    <record id="programador" model="res.groups">
+      <field name="name">Proyectojoel/Programador</field>
+      <field name="comment">Perfil Programador de los proyectos</field>
+    </record>
+  </data>
+</odoo>

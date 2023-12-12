@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+  <data>
+
+
+    <record model="ir.ui.view" id="proyectojoel.empresas_contratadoras_report_template_view">
+      <field name="name">proyectojoel.empresas_contratadoras_report_template_view</field>
+      <field name="model">proyectojoel.empresas_contratadoras</field>
+      <field name="arch" type="xml">
+        <template>
+          <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+              <div class="page">
+                <br/>
+                <t t-foreach="o.proyectojoel" t-as="line">
+                  <table class="table2">
+                    <tr>
+                      <td colspan="3" align="left">
+                        <img t-attf-src="data:image/*;base64,{{o.imagen}}" height="80px"/>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colspan="3" align="left">
+                        <b><span t-field="o.name"/></b>
+                      </td>
+                    </tr>
+                  </table>
+                  <br/>
+                  <br/>
+                  <table class="table1">
+                    <thead>
+                      <tr class="tr2">
+                        <td width="300" align="center">
+                          <font size="5"><b>Nombre</b></font>
+                        </td>
+                        <td width="300" align="center">
+                          <font size="5"><b>Email</b></font>
+                        </td>
+                        <td width="300" align="center">
+                          <font size="5"><b>Telefono</b></font>
+                        </td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr class="tr1" align="center">
+                        <td class="td1" width="300">
+                          <span t-esc="line.name"/>
+                        </td>
+                        <td class="td1" width="300" align="center">
+                          <span t-esc="line.email"/>
+                        </td>
+                        <td class="td1" width="300" align="center">
+                          <span t-esc="line.phone"/>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </t>
+              </div>
+            </t>
+          </t>
+        </template>
+      </field>
+    </record>
+  </data>
+</odoo>

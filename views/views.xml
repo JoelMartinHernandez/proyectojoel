@@ -1,0 +1,88 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <!-- Empresas_contratadoras -->
+
+    <record model="ir.ui.view" id="proyectojoel.empresas_contratadoras_tree">
+      <field name="name">proyectojoel.empresas_contratadoras.tree</field>
+      <field name="model">proyectojoel.empresas_contratadoras</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name" />
+          <field name="email" />
+          <field name="phone" />
+          <field name="numero_empleados" />
+          <field name="tam_empresa" />
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.ui.view" id="proyectojoel.empresas_contratadoras_form">
+      <field name="name">proyectojoel.empresas_contratadoras.form</field>
+      <field name="model">proyectojoel.empresas_contratadoras</field>
+      <field name="arch" type="xml">
+        <form>
+          <group colspan="2" col="2">
+            <field name="name" />
+            <field name="email" />
+            <field name="phone" />
+            <field name="numero_empleados" />
+            <field name="tam_empresa" />
+            <field name="project" />
+          </group>
+        </form>
+      </field>
+    </record>
+
+    <record id="prject_project_extend" model="ir.ui.view">
+      <field name="name">project.project.extended</field>
+      <field name="model">project.project</field>
+      <field name="inherit_id" ref="project.edit_project" />
+      <field name="arch" type="xml">
+        <field name="user_id" position="after">
+          <field name="empresas" />
+        </field>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="proyectojoel.empresas_contratadoras_action_window">
+      <field name="name">empresas_contratadoras</field>
+      <field name="res_model">proyectojoel.empresas_contratadoras</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_menu_proyectos" model="ir.actions.act_window">
+      <field name="name">Proyectos</field>
+      <field name="res_model">project.project</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_menu_tareas" model="ir.actions.act_window">
+      <field name="name">Tareas</field>
+      <field name="res_model">project.task</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Menú principal aplicacion proyectojoel -->
+    <menuitem name="proyectojoel" id="proyectojoel.menu_root" />
+
+    <!-- Submenu proyectojoel -->
+    <menuitem name="empresas_contratadoras" id="proyectojoel.empresas_contratadoras_menu"
+      parent="proyectojoel.menu_root" 
+      action="proyectojoel.empresas_contratadoras_action_window" />
+
+    <menuitem name="Proyectos" id="proyectojoel.proyecto_menu"
+      parent="proyectojoel.menu_root" 
+      action="proyectojoel.action_menu_proyectos" />
+
+      <menuitem name="Tareas" id="proyectojoel.tareas_menu"
+      parent="proyectojoel.menu_root" 
+      action="proyectojoel.action_menu_tareas" />
+
+    <!-- opciones del menu proyectojoel -->
+
+
+
+  </data>
+</odoo>
