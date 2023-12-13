@@ -4,64 +4,119 @@
   <data>
 
 
-    <record model="ir.ui.view" id="proyectojoel.empresas_contratadoras_report_template_view">
-      <field name="name">proyectojoel.empresas_contratadoras_report_template_view</field>
-      <field name="model">proyectojoel.empresas_contratadoras</field>
-      <field name="arch" type="xml">
-        <template>
-          <t t-call="web.html_container">
-            <t t-foreach="docs" t-as="o">
-              <div class="page">
-                <br/>
-                <t t-foreach="o.proyectojoel" t-as="line">
-                  <table class="table2">
-                    <tr>
-                      <td colspan="3" align="left">
-                        <img t-attf-src="data:image/*;base64,{{o.imagen}}" height="80px"/>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td colspan="3" align="left">
-                        <b><span t-field="o.name"/></b>
-                      </td>
-                    </tr>
-                  </table>
-                  <br/>
-                  <br/>
-                  <table class="table1">
-                    <thead>
-                      <tr class="tr2">
-                        <td width="300" align="center">
-                          <font size="5"><b>Nombre</b></font>
-                        </td>
-                        <td width="300" align="center">
-                          <font size="5"><b>Email</b></font>
-                        </td>
-                        <td width="300" align="center">
-                          <font size="5"><b>Telefono</b></font>
-                        </td>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr class="tr1" align="center">
-                        <td class="td1" width="300">
-                          <span t-esc="line.name"/>
-                        </td>
-                        <td class="td1" width="300" align="center">
-                          <span t-esc="line.email"/>
-                        </td>
-                        <td class="td1" width="300" align="center">
-                          <span t-esc="line.phone"/>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </t>
-              </div>
-            </t>
+    <template id="empresas_contratadoras_report_template">
+      <t t-call="web.html_container">
+        <head>
+          <style>
+            .table1 {
+            border-bottom: 1px solid #000000;
+            border-top: 1px solid #000000;
+            border-spacing: 0px;
+            margin-left: auto;
+            margin-right: auto;
+            align: center;
+            }
+            .table1 tbody tr:nth-of-type(odd) {
+            background-color: #d6dbdf;
+            }
+            .table2 {
+            width: 100%;
+            border-bottom: 1px solid #000000;
+            align: center;
+            }
+            .tr2 {
+            border-bottom: 1px solid #000000;
+            }
+          </style>
+        </head>
+        <div class="page">
+          <br />
+          <t t-foreach='docs' t-as='o'>
+            <table class="table2">
+              <tr>
+
+              </tr>
+              <tr>
+                <td colspan="5" align="left">
+                  <b>
+                    <span t-field="o.name" />
+                  </b>
+                </td>
+              </tr>
+            </table>
+            <br />
+
+            
+            <table class="table1">
+              <thead>
+                <tr class="tr2">
+                  <td width="300" align="center">
+                    <font size="5">
+                      <b>Nombre empresa</b>
+                    </font>
+                  </td>
+                  <td width="300" align="center">
+                    <font size="5">
+                      <b>Correo electronico</b>
+                    </font>
+                  </td>
+                  <td width="300" align="center">
+                    <font size="5">
+                      <b>Numero de telefono</b>
+                    </font>
+                  </td>
+                  <td width="300" align="center">
+                    <font size="5">
+                      <b>Numero de empleados</b>
+                    </font>
+                  </td>
+                  <td width="300" align="center">
+                    <font size="5">
+                      <b>Tamaño de la empresa</b>
+                    </font>
+                  </td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="tr1" align="center">
+                  <td class="td1" width="300">
+                    <span t-esc="o.name" />
+                  </td>
+                  <td class="td1" width="300" align="center">
+                    <span t-esc="o.email" />
+                  </td>
+                  <td class="td1" width="300" align="center">
+                    <span t-esc="o.phone" />
+                  </td>
+                  <td class="td1" width="300" align="center">
+                    <span t-esc="o.numero_empleados" />
+                  </td>
+                  <td class="td1" width="300" align="center">
+                    <span t-esc="o.tam_empresa" />
+                  </td>
+                </tr>
+                
+              </tbody>
+              <br />
+              <!-- <tbody>
+                <tr class="tr1" t-foreach='o.project' t-as='line'
+                  align="center">
+                  <td class="td1" width="300">
+                    <span t-esc="line.display_name" />
+                  </td>
+                  <td class="td1" width="300" align="center">
+                    <span t-esc="line.date_start" />
+                  </td>
+                  <td class="td1" width="300" align="center">
+                    <span t-esc="line.date" />
+                  </td>
+                </tr>
+              </tbody> -->
+            </table>
           </t>
-        </template>
-      </field>
-    </record>
+        </div>
+      </t>
+    </template>
   </data>
-</odoo>
+</odoo> 
+                   

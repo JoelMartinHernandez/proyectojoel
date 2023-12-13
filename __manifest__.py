@@ -28,8 +28,8 @@
         'views/templates.xml',
         'security/security.xml',
         'security/ir.model.access.csv',
-        # 'reports/proyectojoel_report.xml',
-        # 'reports/proyectojoel_report_view.xml',
+        'reports/proyectojoel_report.xml',
+        'reports/proyectojoel_report_view.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
