@@ -13,7 +13,7 @@
           <field name="email" />
           <field name="phone" />
           <field name="numero_empleados" />
-          <field name="tam_empresa" groups="proyectojoel.administrador"/>
+          <field name="tam_empresa" groups="proyectojoel.administrador, proyectojoel.jefe_de_proyectos, proyectojoel.analista"/>
         </tree>
       </field>
     </record>
@@ -28,7 +28,7 @@
             <field name="email" />
             <field name="phone" />
             <field name="numero_empleados" />
-            <field name="tam_empresa" groups="proyectojoel.administrador"/>
+            <field name="tam_empresa" groups="proyectojoel.administrador, proyectojoel.jefe_de_proyectos, proyectojoel.analista"/>
             <field name="project" />
           </group>
         </form>
