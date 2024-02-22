@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <data>
+
+    <record id="res_config_settings_view_form" model="ir.ui.view">
+      <field name="name">res.config.settings.view.empresas_contratadoras</field>
+      <field name="model">res.config.settings</field>
+      <field name="inherit_id" ref="base.res_config_settings_view_form" />
+      <field name="arch" type="xml">
+        <xpath expr="//div[hasclass('settings')]" position="inside">
+          <div class="app_settings_block" data-string="empresas_contratadoras"
+            id="empresas_contratadoras" string="proyectojoel"
+            data-key="proyectojoel.empresas_contratadoras">
+            <h2>empresas_contratadoras Management</h2>
+            <div class="row mt16 o_settings_container" id="empresas_contratadoras_setting">
+              <div class="col-12 col-lg-6 o_setting_box">
+                <div class="o_setting_left_pane" />
+                <div class="o_setting_right_pane">
+                  <span class="o_form_label">Funcion A</span>
+                  <div class="text-muted content-group mt16">
+                    <field name="show_task" class="o_checkbox mt8" />
+                    <label for="show_task" class="mt8">
+                      <span>Pronto acabara todo</span>
+                    </label>
+                    <span class="o_form_label">Pais</span>
+                    <div class="text-muted content-group mt16">
+                      <field name="dropdown_field" class="o_field_widget o_field_selector" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </xpath>
+      </field>
+    </record>
+
+    <record id="empresas_config_settings_action" model="ir.actions.act_window">
+      <field name="name">Settings</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">res.config.settings</field>
+      <field name="view_mode">form</field>
+      <field name="target">inline</field>
+      <field name="context">{'module' : 'proyectojoel.empresas_contratadoras'}</field>
+    </record>
+
+    <record id="action_registro_empresa_contratadora_tree" model="ir.actions.act_window">
+      <field name="name">Registro Empresa Contratadora</field>
+      <field name="res_model">proyectojoel.registro_creacion_empresa</field>
+      <field name="view_mode">tree</field>
+      <field name="view_id" ref="vista_registro_creacion_empresa_tree" />
+      <field name="context">{}</field>
+    </record>
+
+    <!-- Define el elemento de menú en el ajuste -->
+    <menuitem id="menu_registro_empresa_contratadora_tree"
+      name="Registro Empresa Contratadora"
+      parent="base.menu_administration"
+      action="action_registro_empresa_contratadora_tree"
+      sequence="30" />
+
+    <!-- <menuitem id="empresas_config_settings_menu"
+      name="Settings"
+      parent="proyectojoel.empresas_contratadoras_menu"
+      sequence="0" action="empresas_config_settings_action"
+      groups="base.group_system" /> -->
+
+  </data>
+</odoo>

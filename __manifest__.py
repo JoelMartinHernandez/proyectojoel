@@ -26,10 +26,12 @@
         # 'security/ir.model.access.csv',
         'views/views.xml',
         'views/templates.xml',
+        'views/res_config_settings_views.xml',
         'security/security.xml',
         'security/ir.model.access.csv',
         'reports/proyectojoel_report.xml',
         'reports/proyectojoel_report_view.xml',
+        
     ],
     # only loaded in demonstration mode
     'demo': [

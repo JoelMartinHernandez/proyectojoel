@@ -26,7 +26,9 @@
           <group colspan="2" col="2">
             <field name="name" />
             <field name="email" />
-            <field name="phone" />
+            <field name="show_task" invisible="0"/>
+            <field name="dropdown_field" invisible="0"/>
+            <field name="phone" attrs="{'invisible': [('show_task', '=', False)]}"/>
             <field name="numero_empleados" />
             <field name="tam_empresa" groups="proyectojoel.administrador, proyectojoel.jefe_de_proyectos, proyectojoel.analista"/>
             <field name="project" />
@@ -34,6 +36,8 @@
         </form>
       </field>
     </record>
+
+   
 
     <record id="project_project_extend" model="ir.ui.view">
       <field name="name">project.project.extended</field>
@@ -64,8 +68,41 @@
       <field name="view_mode">tree,form</field>
     </record>
 
+    <record model="ir.ui.view" id="vista_registro_creacion_empresa_tree">
+      <field name="name">vista.registro.creacion.empresa.tree</field>
+      <field name="model">proyectojoel.registro_creacion_empresa</field>
+      <field name="arch" type="xml">
+          <tree string="Registros de Creación de Empresas">
+              <field name="user"/>
+              <field name="empresaName"/>
+              <field name="fecha"/>
+              <field name="tipo_accion"/>
+          </tree>
+      </field>
+  </record>
+
+  <record model="ir.actions.act_window" id="accion_vista_registro_creacion_empresa">
+    <field name="name">Registros de Creación de Empresas</field>
+    <field name="res_model">proyectojoel.registro_creacion_empresa</field>
+    <field name="view_mode">tree</field>
+</record>
+
+<record id="res_config_settings_action"
+      model="ir.actions.act_window">
+      <field name="name">Configuracion</field>
+      <field name="res_model">res.config.settings</field>
+      <field name="view_mode">form</field>
+      <field name="context">{'module' : 'proyectojoel.empresas_contratadoras'}</field>
+    </record>
+
+ <!-- Menú para acceder a los registros de creación de empresas -->
+
+
+
     <!-- Menú principal aplicacion proyectojoel -->
     <menuitem name="proyectojoel" id="proyectojoel.menu_root" />
+
+    
 
     <!-- Submenu proyectojoel -->
     <menuitem name="empresas_contratadoras" id="proyectojoel.empresas_contratadoras_menu"
@@ -80,8 +117,12 @@
       parent="proyectojoel.menu_root" 
       action="proyectojoel.action_menu_tareas" />
 
-    <!-- opciones del menu proyectojoel -->
+      <menuitem id="menu_registro_creacion_empresa" name="Registros de Creacion de Empresas" parent="proyectojoel.menu_root"/>
+      <menuitem id="menu_registro_creacion_empresa_list" name="Lista de Registros" parent="proyectojoel.menu_root" action="accion_vista_registro_creacion_empresa"/>
 
+      <menuitem name="Opciones" id="proyectojoel.config_settigns"
+      parent="proyectojoel.menu_root"
+      action="res_config_settings_action" />
 
 
   </data>
